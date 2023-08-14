@@ -47,5 +47,16 @@ const authModel = {
       );
     });
   },
+  delete: (field, value) => {
+    return new Promise((resolve, reject) => {
+      db.query(`DELETE FROM users WHERE ${field}='${value}'`, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  },
 };
 module.exports = authModel;

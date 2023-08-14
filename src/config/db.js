@@ -16,11 +16,12 @@ const db = new Pool({
     rejectUnauthorized: false,
   },
 });
+console.log(DB_NAME);
 db.connect((err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('DB CONNECTED');
+    console.log('DB CONNECTED999');
   }
 });
 module.exports = db;

@@ -15,7 +15,10 @@ module.exports = {
     try {
       const { name, email, phone, password } = req.body;
       await validate(RegisterValidation, req.body, res);
+      //   const test = await authModel.delete('email', email);
+      //   return console.log(test);
       const findUserByEmail = await authModel.findBy('email', email);
+      //   return console.log(findUserByEmail);
       if (findUserByEmail.rowCount > 0) {
         throw {
           customErr: failed(res, {

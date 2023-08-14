@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 module.exports = {
-  sendConfirmationEmail: (email, confirmationCode, name) => {
+  sendConfirmationEmail: async (email, confirmationCode, name) => {
     transporter.use(
       'compile',
       handlebars({
@@ -47,12 +47,23 @@ module.exports = {
       },
     };
 
-    transporter.sendMail(mailOptions, (err, res) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(res);
-      }
+    // transporter.sendMail(mailOptions, (err, res) => {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log(res);
+    //   }
+    // });
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, (err, res) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        } else {
+          console.log(res);
+          resolve(err);
+        }
+      });
     });
   },
 };
