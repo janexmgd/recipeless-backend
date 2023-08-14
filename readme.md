@@ -72,7 +72,6 @@ git clone https://github.com/janexmgd/recipeless-backend.git
   ```sh
   npm install
   ```
-  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 4. Duplicate the `.env.example` file and rename it to `.env`.
 5. Adjust the values in the `.env` file according to the needs of your project.
@@ -82,3 +81,4 @@ git clone https://github.com/janexmgd/recipeless-backend.git
   ```sh
   npm start
   ```
+    <p align="right">(<a href="#readme-top">back to top</a>)</p>
