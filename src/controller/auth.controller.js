@@ -49,7 +49,7 @@ module.exports = {
         isVerified,
       };
       await authModel.register(data);
-      sendConfirmationEmail(email, verifyToken, name);
+      await sendConfirmationEmail(email, verifyToken, name);
       success(res, {
         code: 200,
         status: 'success',
